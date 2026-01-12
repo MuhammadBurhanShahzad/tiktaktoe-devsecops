@@ -151,7 +151,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN  }}
       
       - name: Setup Git config
         run: |
@@ -161,11 +161,11 @@ jobs:
       - name: Update Kubernetes deployment file
         env:
           IMAGE_TAG: sha-${{ github.sha }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          REGISTRY: ghcr.io
+          IMAGE_NAME: burhan107/tiktaktoe-devsecops
+          
         run: |
           # Define the new image with tag
-          NEW_IMAGE="burhan107/tiktaktoe-devsecops:${IMAGE_TAG}"
+          NEW_IMAGE="${IMAGE_NAME}:${IMAGE_TAG}"
           
           # Update the deployment file directly
           sed -i "s|image: .*|image: ${NEW_IMAGE}|g" kubernetes/deployment.yaml
