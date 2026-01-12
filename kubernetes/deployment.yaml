@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tic-tac-toe
-        image: burhan107/tiktaktoe-devsecops:sha-b2e34d45af8ebafc940b18856728684a2cea0c79
+        image: burhan107/tiktaktoe-devsecops:sha-39f9385a555002e6a99930ac6d2ae4d8628f60ba
         # Image will be automatically updated by CI/CD pipeline
         imagePullPolicy: Always
         ports:
